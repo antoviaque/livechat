@@ -50,10 +50,13 @@ Template.chat.events = {
 };
 
 Template.chat_user_name.events = {
-    'keyup input': function(evt) {
-        var el = $(evt.target);
+    'keyup input, click button': function(evt) {
+        var form = $(evt.target).parent();
+        var el = $('input', el);
 
-        if(evt.which === 13) { // Enter
+        console.log(evt);
+
+        if(evt.type === 'click' || (evt.type === 'keyup' && evt.which === 13)) { // Enter
             ChatMessages.find({author: Session.get('user_name')}).forEach(function(message) {
                 ChatMessages.update(message._id, {$set: {author: el.val()}});
             });

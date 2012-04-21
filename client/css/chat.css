@@ -6,3 +6,6 @@
     width: 100%
 }
 
+.chat .chat-message .author {
+    color: green;
+}
