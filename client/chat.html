@@ -1,0 +1,55 @@
+<head>
+    <title>Meeting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="#">Chat</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                {{> chat}}
+            </div>
+            <div class="span4">
+                {{> chat_user_name}}
+            </div>
+        </div>
+    </div>
+</body>
+
+<template name="chat">
+    <div class="chat">
+        {{#each chat_messages}}
+            {{> chat_message}}
+        {{/each}}
+        <div class="composer">
+            <textarea class="composer-input" rows="2"></textarea>
+        </div>
+    </div>
+</template>
+
+<template name="chat_message">
+    <ul class="chat-message breadcrumb">
+        <li class="author">{{author}} <span class="divider">|</li>
+        <li class="text">{{text}}</div>
+    </ul>
+</template>
+
+<template name="chat_user_name">
+    <div class="chat-user-name">
+        <ul class="nav nav-list">
+            <li class="nav-header">
+                Your name
+            </li>
+            <li><input type="text" class="user-name input-large" value="{{user_name}}" /></li>
+        </ul>
+    </div>
+</template>
+
